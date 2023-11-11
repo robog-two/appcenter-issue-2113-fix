@@ -214,8 +214,10 @@ public class AppCenter.MainWindow : Hdy.ApplicationWindow {
         headerbar.pack_start (return_button);
         if (!Utils.is_running_in_guest_session ()) {
             headerbar.pack_end (menu_button);
+            headerbar.pack_end (view_mode_revealer);
+        } else {
+            headerbar.pack_end (new Gtk.Label (""));
         }
-        headerbar.pack_end (view_mode_revealer);
 
         var homepage = new Homepage ();
         installed_view = new Views.AppListUpdateView ();
